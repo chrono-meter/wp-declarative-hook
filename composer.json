@@ -1,0 +1,18 @@
+{
+    "name": "chrono-meter/wp-declarative-hook",
+    "version": "1.0.0",
+    "description": "Helper functions for WordPress filters and actions.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chrono-meter",
+            "email": "chrono-meter@gmx.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ChronoMeter\\WpDeclarativeHook\\": "src/"
+        }
+    }
+}
