@@ -1,5 +1,4 @@
-<?php  // phpcs:ignore WordPress.Files.FileName.NotHyphenatedLowercase
-// phpcs:disable Squiz.Commenting
+<?php
 namespace ChronoMeter\WpDeclarativeHook;
 
 #[\Attribute( \Attribute::TARGET_FUNCTION | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE )]
@@ -31,6 +30,7 @@ class AjaxAction extends Action {
 			$cap = is_callable( $this->capability ) ? call_user_func( $this->capability ) : $this->capability;
 
 			if ( $cap && ! current_user_can( $cap ) ) {
+				// NOTE: __( 'Sorry, you are not allowed to perform this action.' ) is also usaable.
 				wp_send_json_error( __( 'You need a higher level of permission.' ) );
 			}
 
@@ -46,10 +46,10 @@ class AjaxAction extends Action {
 				if ( ! is_wp_error( $result ) ) {
 					wp_send_json_success( $result );
 				} else {
-					wp_send_json_error( $result->get_error_message() );
+					wp_send_json_error( $result->get_error_message(), $result->get_error_code() );
 				}
 			} catch ( \Throwable $e ) {
-				wp_send_json_error( $e->getMessage() );
+				wp_send_json_error( $e->getMessage(), $e->getCode() ?: 500 );  // phpcs:ignore Universal.Operators.DisallowShortTernary.Found
 			}
 		};
 
