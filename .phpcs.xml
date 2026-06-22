@@ -14,8 +14,10 @@
 	<exclude-pattern>/third-party/*</exclude-pattern>
 	<exclude-pattern>/third-party.tmp/*</exclude-pattern>
 
+	<config name="testVersion" value="8.3-"/>
+	<rule ref="PHPCompatibilityWP"/>
+	<config name="minimum_supported_wp_version" value="6.2"/>
 	<rule ref="WordPress"/>
-
 	<rule ref="Generic.Files.LineEndings.InvalidEOLChar"><severity>0</severity></rule>
 	<rule ref="Squiz.Commenting"><severity>0</severity></rule>
 	<rule ref="Squiz.PHP.CommentedOutCode"><severity>0</severity></rule>
