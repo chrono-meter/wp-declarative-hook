@@ -2,6 +2,11 @@
 // phpcs:disable Squiz.Commenting
 namespace ChronoMeter\WpDeclarativeHook;
 
+/**
+ * Replace the post editor for a given post type.
+ *
+ * @deprecated 1.1.0 Use `ReplacePostEditor` instead.
+ */
 #[\Attribute( \Attribute::TARGET_FUNCTION | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE )]
 class ReplaceEditor extends Filter {
 
